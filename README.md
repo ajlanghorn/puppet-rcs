@@ -1,44 +1,80 @@
-Puppet modules often take on the same file system structure. The
-built-in puppet-module tool makes starting modules easy, but the built
-in skeleton module is very simple. This skeleton is very opinionated.
-It's going to assume you're going to start out with tests (both unit and
-acceptance), that you care about the puppet style guide, test using Travis,
-keep track of releases and structure your modules according to strong
-conventions.
+# puppet-rcs
 
-## Installation
-
-As a feature, puppet module tool will use `~/.puppet/var/puppet-module/skeleton`
-as template for its `generate` command. The files provided here are
-meant to be better templates for use with the puppet module tool.
-
-As we don't want to have our .git files and this README in our skeleton, we export it like this:
-
-    git clone https://github.com/gds-operations/puppet-module-skeleton
-    cd puppet-module-skeleton
-    find skeleton -type f | git checkout-index --stdin --force --prefix="$HOME/.puppet/var/puppet-module/" --
+A Puppet module for configuring `/etc/default/rcS`, a script to control the
+behaviour of boot-time scripts.
 
 ## Usage
 
-Then just generate your new module structure like so:
+### Installation
 
-    puppet module generate user-module
+If you're using a Puppet package managment system such as
+[r10k](https://github.com/puppetlabs/r10k) or
+[librarian-puppet](https://github.com/rodjek/librarian-puppet), you can
+include this module in your Puppetfile as such:
 
-Once you have your module then install the development dependencies:
+`mod ajlanghorn/puppet-rcs`
 
-    cd user-module
-    bundle install
+If you're running Puppet Enterprise, you can install this module using:
 
-Now you should have a bunch of rake commands to help with your module
-development, which you can get a list of by running:
+`puppet module install ajlanghorn-puppet-rcs`
 
-    bundle exec rake -T
+### Configuration
 
-During development of your puppet module you might want to run your unit tests a couple of times. You can use the following command to automate running the unit tests on every change made in the manifests folder.
+A number of options are available to be configured using this module,
+including:
 
-    bundle exec guard
+  - `TMPTIME`
+  - `SULOGIN`
+  - `DELAYLOGIN`
+  - `UTC`
+  - `VERBOSE`
+  - `FSCKFIX`
 
-## Thanks
+Brief descriptions can be found in `init.pp`, or via your distro's help
+system.
 
-The trick used in the installation above, and a few other bits came from
-another excellent module skeleton from [spiette](https://github.com/spiette/puppet-module-skeleton)
+To configure an option, you can either include this class inside a manifest
+and provide an option, or include it and provide options in Hiera. The
+latter is a more extensible way of using this module, so is recommended.
+
+#### Hiera
+
+In your manifest, include the module:
+
+`include rcs`
+
+And then configure options in your Hiera backend, namespaced around `rcs`.
+For instance, to configure `VERBOSE` to `yes`, set:
+
+`rcs::verbose: 'yes'`
+
+Where an option takes a numerical value, the value can be passed without
+quoting it to transform it to a string. For instance, to set `TMPTIME` to
+`7`, use:
+
+`rcs::tmptime: 7`
+
+### Class inclusion
+
+In your manifest, include the module as such:
+
+```
+class { 'rcs' :
+ verbose => 'yes', 
+}
+```
+
+## Contributions
+
+Contributions are both appreciated and encouraged. To get started:
+
+  1. Fork the module, then clone it (`git clone git@github.com:username/puppet-rcs.git`)
+  1. Create a feature branch (`git checkout -b feature-branch-name`)
+  1. Commit your changes to your branch (`git commit -vm 'Add new feature'`)
+  1. Push to your feature branch (`git push -u origin HEAD`)
+  1. Create a new pull request
+
+When adding a new feature, it would be very much appreciated if tests were
+bundled in to the same pull request. If you need help writing tests, please
+feel free to mention me in your pull request or raise an issue and we can
+look together.
