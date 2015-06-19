@@ -1,0 +1,44 @@
+# /etc/default/rcS
+# THIS FILE IS MANAGED BY PUPPET
+
+# Delete files in /tmp during boot older than TMPTIME days
+<% if @tmptime != nil -%>
+  TMPTIME=<%= @tmptime %>
+<% else %>
+  TMPTIME=7
+<% end -%>
+
+# Spawn sulogin at boot, continue boot if not used within 30s
+<% if @tmptime != nil -%>
+  SULOGIN=<%= @sulogin %>
+<% else %>
+  SULOGIN=no
+<% end -%>
+
+# Do not allow users to login until boot has completed
+<% if @delaylogin != nil -%>
+  DELAYLOGIN=<%= @delaylogin %>
+<% else %>
+  DELAYLOGIN=no
+<% end -%>
+
+# Assume that BIOS time is UTC
+<% if @utc !=nil -%>
+  UTC=<%= @utc %>
+<% else -%>
+  UTC=yes
+<% end -%>
+
+# Verbose output during boot process
+<% if @verbose !=nil -%>
+  VERBOSE=<%= @verbose %>
+<% else -%>
+  VERBOSE=no
+<% end -%>
+
+# Automatically repair filesystems with inconsistencies during boot
+<% if @fsckfix !=nil -%>
+  FSCKFIX=<%= @fsckfix %>
+<% else -%>
+  FSCKFIX=no
+<% end -%>
