@@ -1,0 +1,14 @@
+{
+  "name": "puppet-rcs",
+  "version": "0.1.0",
+  "author": "Andrew Langhorn",
+  "summary": "Manage Ubuntu rCS boot script behaviour using Puppet.",
+  "license": "Apache-2.0",
+  "source": "https://github.com/ajlanghorn/puppet-rcs",
+  "project_page": "https://github.com/ajlanghorn/puppet-rcs",
+  "issues_url": "https://github.com/ajlanghorn/puppet-rcs/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
