@@ -1,7 +1,5 @@
 # puppet-rcs
 
-__A WORK IN PROGRESS__
-
 A Puppet module for configuring `/etc/default/rcS`, a script to control the
 behaviour of boot-time scripts.
 
