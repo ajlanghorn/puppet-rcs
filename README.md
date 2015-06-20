@@ -1,4 +1,4 @@
-# puppet-rcs
+# ajlanghorn/rcs
 
 A Puppet module for configuring `/etc/default/rcS`, a script to control the
 behaviour of boot-time scripts.
@@ -12,11 +12,7 @@ If you're using a Puppet package managment system such as
 [librarian-puppet](https://github.com/rodjek/librarian-puppet), you can
 include this module in your Puppetfile as such:
 
-`mod ajlanghorn/puppet-rcs`
-
-If you're running Puppet Enterprise, you can install this module using:
-
-`puppet module install ajlanghorn-puppet-rcs`
+`mod ajlanghorn/rcs`
 
 ### Configuration
 
