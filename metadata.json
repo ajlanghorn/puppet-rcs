@@ -7,6 +7,12 @@
   "source": "https://github.com/ajlanghorn/puppet-rcs",
   "project_page": "https://github.com/ajlanghorn/puppet-rcs",
   "issues_url": "https://github.com/ajlanghorn/puppet-rcs/issues",
+  "operatingsystem_support": [
+    {
+     "operatingsystem":"Ubuntu",
+     "operatingsystemrelease": [ "14.04", "12.04" ]
+    }
+  ]
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
   ]
