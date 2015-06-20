@@ -15,6 +15,12 @@
 #   Default: no
 #
 # [*DELAYLOGIN*]
+#   Normally, the system will not let non-root users log in until the boot
+#   process is complete and the system has finished safely switching to the
+#   default runlevel (2). However, some operating systems allow login to occur
+#   at an earlier stage, namely just after inetd has started. Ensures this
+#   isn't possible.
+#   Default: no
 #
 # [*UTC*]
 #   Governs how the BIOS clock is read and written to.
