@@ -1,6 +1,6 @@
 {
   "name": "ajlanghorn-rcs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Andrew Langhorn",
   "summary": "Manage Ubuntu rCS boot script behaviour using Puppet.",
   "license": "Apache-2.0",
