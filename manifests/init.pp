@@ -4,17 +4,17 @@
 #
 # === Parameters
 #
-# [*TMPTIME*]
-#   Delete files from /tmp if they are older than TMPTIME value.
+# [*tmptime*]
+#   Delete files from /tmp if they are older than tmptime value.
 #   Provide the value in terms of days.
 #   Default: 0 (always remove, regardless of age).
 #
-# [*SULOGIN*]
+# [*sulogin*]
 #   Cause init to spawn sulogin on the console early in the boot process.
 #   If no administrator logs in within 30s, the boot process continues.
 #   Default: NO
 #
-# [*DELAYLOGIN*]
+# [*delaylogin*]
 #   Normally, the system will not let non-root users log in until the boot
 #   process is complete and the system has finished safely switching to the
 #   default runlevel (2). However, some operating systems allow login to occur
@@ -22,17 +22,17 @@
 #   isn't possible.
 #   Default: NO
 #
-# [*UTC*]
+# [*utc*]
 #   Governs how the BIOS clock is read and written to.
-#   If set to 'yes', it is assumed that the BIOS clock approximates to UTC.
+#   If set to 'yes', it is assumed that the BIOS clock approximates to utc.
 #   Else, the hardware clock will be assumed to be local time.
 #   Default: YES
 #
-# [*VERBOSE*]
+# [*verbose*]
 #   Make the boot process more verbose.
 #   Default: NO
 #
-# [*FSCKFIX*]
+# [*fsckfix*]
 #   Automatically repair filesystems with inconsistencies during boot.
 #   Default: NO
 #
@@ -57,20 +57,20 @@
 # limitations under the License.
 #
 class rcs(
-  $TMPTIME      = '0',
-  $SULOGIN      = 'NO',
-  $DELAYLOGIN   = 'NO',
-  $UTC          = 'YES',
-  $VERBOSE      = 'NO',
-  $FSCKFIX      = 'NO',
+  $tmptime = '0',
+  $sulogin = 'NO',
+  $delaylogin = 'NO',
+  $utc = 'YES',
+  $verbose = 'NO',
+  $fsckfix = 'NO',
 ){
 
-  validate_string($TMPTIME)
-  validate_string($SULOGIN)
-  validate_string($DELAYLOGIN)
-  validate_string($UTC)
-  validate_string($VERBOSE)
-  validate_string($FSCKFIX)
+  validate_string($tmptime)
+  validate_string($sulogin)
+  validate_string($delaylogin)
+  validate_string($utc)
+  validate_string($verbose)
+  validate_string($fsckfix)
 
   anchor { 'rcs::begin': } ->
   class { '::rcs::config': } ->
