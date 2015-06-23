@@ -2,19 +2,19 @@
 # THIS FILE IS MANAGED BY PUPPET
 
 # Delete files in /tmp during boot older than TMPTIME days
-  TMPTIME=<%= @tmptime %>
+  TMPTIME=<%= @TMPTIME %>
 
 # Spawn sulogin at boot, continue boot if not used within 30s
-  SULOGIN=<%= @sulogin %>
+  SULOGIN=<%= @SULOGIN %>
 
 # Do not allow users to login until boot has completed
-  DELAYLOGIN=<%= @delaylogin %>
+  DELAYLOGIN=<%= @DELAYLOGIN %>
 
 # Assume that BIOS time is UTC
-  UTC=<%= @utc %>
+  UTC=<%= @UTC %>
 
 # Verbose output during boot process
-  VERBOSE=<%= @verbose %>
+  VERBOSE=<%= @VERBOSE %>
 
 # Automatically repair filesystems with inconsistencies during boot
-  FSCKFIX=<%= @fsckfix %>
+  FSCKFIX=<%= @FSCKFIX %>
