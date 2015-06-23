@@ -12,7 +12,7 @@
 # [*SULOGIN*]
 #   Cause init to spawn sulogin on the console early in the boot process.
 #   If no administrator logs in within 30s, the boot process continues.
-#   Default: no
+#   Default: NO
 #
 # [*DELAYLOGIN*]
 #   Normally, the system will not let non-root users log in until the boot
@@ -20,21 +20,21 @@
 #   default runlevel (2). However, some operating systems allow login to occur
 #   at an earlier stage, namely just after inetd has started. Ensures this
 #   isn't possible.
-#   Default: no
+#   Default: NO
 #
 # [*UTC*]
 #   Governs how the BIOS clock is read and written to.
 #   If set to 'yes', it is assumed that the BIOS clock approximates to UTC.
 #   Else, the hardware clock will be assumed to be local time.
-#   Default: yes
+#   Default: YES
 #
 # [*VERBOSE*]
 #   Make the boot process more verbose.
-#   Default: no
+#   Default: NO
 #
 # [*FSCKFIX*]
 #   Automatically repair filesystems with inconsistencies during boot.
-#   Default: no
+#   Default: NO
 #
 # === Authors
 #
@@ -57,12 +57,12 @@
 # limitations under the License.
 #
 class rcs(
-  $TMPTIME      = $rcs::params::tmptime,
-  $SULOGIN      = $rcs::params::sulogin,
-  $DELAYLOGIN   = $rcs::params::delaylogin,
-  $UTC          = $rcs::params::utc,
-  $VERBOSE      = $rcs::params::verbose,
-  $FSCKFIX      = $rcs::params::fsckfix,
+  $TMPTIME      = '0',
+  $SULOGIN      = 'NO',
+  $DELAYLOGIN   = 'NO',
+  $UTC          = 'YES',
+  $VERBOSE      = 'NO',
+  $FSCKFIX      = 'NO',
 ){
 
   validate_string($TMPTIME)
