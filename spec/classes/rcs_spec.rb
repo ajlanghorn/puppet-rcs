@@ -8,12 +8,12 @@ describe 'rcs', :type => :class do
   context 'default parameters' do
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/TMPTIME=0/)
-        .with_content(/SULOGIN=NO/)
-        .with_content(/DELAYLOGIN=NO/)
-        .with_content(/UTC=YES/)
-        .with_content(/VERBOSE=NO/)
-        .with_content(/FSCKFIX=NO/)
+        .with_content(/^  TMPTIME=0$/)
+        .with_content(/^  SULOGIN=NO$/)
+        .with_content(/^  DELAYLOGIN=NO$/)
+        .with_content(/^  UTC=YES$/)
+        .with_content(/^  VERBOSE=NO$/)
+        .with_content(/^  FSCKFIX=NO$/)
     end
   end
 
@@ -23,7 +23,7 @@ describe 'rcs', :type => :class do
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/TMPTIME=7/)
+        .with_content(/^  TMPTIME=7$/)
     end
   end
 
@@ -33,7 +33,7 @@ describe 'rcs', :type => :class do
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/SULOGIN=yes/)
+        .with_content(/^  SULOGIN=yes$/)
     end
   end
 
@@ -43,7 +43,7 @@ describe 'rcs', :type => :class do
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/DELAYLOGIN=yes/)
+        .with_content(/^  DELAYLOGIN=yes$/)
     end
   end
 
@@ -53,7 +53,7 @@ describe 'rcs', :type => :class do
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/UTC=no/)
+        .with_content(/^  UTC=no$/)
     end
   end
 
@@ -63,7 +63,7 @@ describe 'rcs', :type => :class do
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/VERBOSE=yes/)
+        .with_content(/^  VERBOSE=yes$/)
     end
   end
 
@@ -73,7 +73,7 @@ describe 'rcs', :type => :class do
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/FSCKFIX=yes/)
+        .with_content(/^  FSCKFIX=yes$/)
     end
   end
 
