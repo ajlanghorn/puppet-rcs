@@ -1,4 +1,4 @@
-# ajlanghorn/rcs
+# alphagov/rcs
 
 A Puppet module for configuring `/etc/default/rcS`, a script to control the
 behaviour of boot-time scripts.
@@ -12,7 +12,11 @@ If you're using a Puppet package managment system such as
 [librarian-puppet](https://github.com/rodjek/librarian-puppet), you can
 include this module in your Puppetfile as such:
 
-`mod ajlanghorn/rcs`
+```
+  mod alphagov/rcs,
+  :git => 'git://github.com/alphagov/puppet-rcs.git'
+```
+
 
 ### Configuration
 
@@ -56,9 +60,16 @@ In your manifest, include the module as such:
 
 ```
 class { 'rcs' :
- verbose => 'yes', 
+ verbose => 'yes',
 }
 ```
+
+## Testing
+
+There are a number of RSpec-Puppet tests built-in to this module, which you
+can see in `spec/classes/rcs_spec.rb`. You can run the tests from the
+Rakefile, using `bundle exec rake test`, which will run RSpec-Puppet,
+syntax, metadata.json syntax and lint tests.
 
 ## Contributions
 
