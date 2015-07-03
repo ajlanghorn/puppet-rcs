@@ -27,13 +27,33 @@ describe 'rcs', :type => :class do
     end
   end
 
+  context 'sulogin is set to YES' do
+    let(:params) {{
+      :sulogin => 'YES',
+    }}
+    it do
+      is_expected.to contain_file('/etc/default/rcS') \
+        .with_content(/^  SULOGIN=YES$/)
+    end
+  end
+
   context 'sulogin is set to yes' do
     let(:params) {{
       :sulogin => 'yes',
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/^  SULOGIN=yes$/)
+        .with_content(/^  SULOGIN=YES$/)
+    end
+  end
+
+  context 'delaylogin is set to YES' do
+    let(:params) {{
+      :delaylogin => 'YES',
+    }}
+    it do
+      is_expected.to contain_file('/etc/default/rcS') \
+        .with_content(/^  DELAYLOGIN=YES$/)
     end
   end
 
@@ -43,7 +63,17 @@ describe 'rcs', :type => :class do
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/^  DELAYLOGIN=yes$/)
+        .with_content(/^  DELAYLOGIN=YES$/)
+    end
+  end
+
+  context 'utc is set to NO' do
+    let(:params) {{
+      :utc => 'NO',
+    }}
+    it do
+      is_expected.to contain_file('/etc/default/rcS') \
+        .with_content(/^  UTC=NO$/)
     end
   end
 
@@ -53,7 +83,17 @@ describe 'rcs', :type => :class do
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/^  UTC=no$/)
+        .with_content(/^  UTC=NO$/)
+    end
+  end
+
+  context 'verbose is set to YES' do
+    let(:params) {{
+      :verbose => 'YES'
+    }}
+    it do
+      is_expected.to contain_file('/etc/default/rcS') \
+        .with_content(/^  VERBOSE=YES$/)
     end
   end
 
@@ -63,7 +103,17 @@ describe 'rcs', :type => :class do
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/^  VERBOSE=yes$/)
+        .with_content(/^  VERBOSE=YES$/)
+    end
+  end
+
+  context 'fsckfix is set to YES' do
+    let(:params) {{
+      :fsckfix => 'YES'
+    }}
+    it do
+      is_expected.to contain_file('/etc/default/rcS') \
+        .with_content(/^  FSCKFIX=YES$/)
     end
   end
 
@@ -73,7 +123,7 @@ describe 'rcs', :type => :class do
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/^  FSCKFIX=yes$/)
+        .with_content(/^  FSCKFIX=YES$/)
     end
   end
 
