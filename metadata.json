@@ -1,12 +1,12 @@
 {
-  "name": "ajlanghorn-rcs",
+  "name": "alphagov-rcs",
   "version": "0.1.1",
-  "author": "Andrew Langhorn",
+  "author": "Government Digital Service",
   "summary": "Manage Ubuntu rCS boot script behaviour using Puppet.",
   "license": "Apache-2.0",
-  "source": "https://github.com/ajlanghorn/puppet-rcs",
-  "project_page": "https://github.com/ajlanghorn/puppet-rcs",
-  "issues_url": "https://github.com/ajlanghorn/puppet-rcs/issues",
+  "source": "https://github.com/alphagov/puppet-rcs",
+  "project_page": "https://github.com/alphagov/puppet-rcs",
+  "issues_url": "https://github.com/alphagov/puppet-rcs/issues",
   "operatingsystem_support": [
     {
      "operatingsystem":"Ubuntu",

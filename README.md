@@ -1,4 +1,4 @@
-# ajlanghorn/rcs
+# alphagov/rcs
 
 A Puppet module for configuring `/etc/default/rcS`, a script to control the
 behaviour of boot-time scripts.
@@ -12,7 +12,7 @@ If you're using a Puppet package managment system such as
 [librarian-puppet](https://github.com/rodjek/librarian-puppet), you can
 include this module in your Puppetfile as such:
 
-`mod ajlanghorn/rcs`
+`mod alphagov/rcs`
 
 ### Configuration
 
