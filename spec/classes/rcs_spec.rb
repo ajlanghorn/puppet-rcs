@@ -9,11 +9,11 @@ describe 'rcs', :type => :class do
     it do
       is_expected.to contain_file('/etc/default/rcS') \
         .with_content(/^  TMPTIME=0$/)
-        .with_content(/^  SULOGIN=NO$/)
-        .with_content(/^  DELAYLOGIN=NO$/)
-        .with_content(/^  UTC=YES$/)
-        .with_content(/^  VERBOSE=NO$/)
-        .with_content(/^  FSCKFIX=NO$/)
+        .with_content(/^  SULOGIN=no$/)
+        .with_content(/^  DELAYLOGIN=no$/)
+        .with_content(/^  UTC=yes$/)
+        .with_content(/^  VERBOSE=no$/)
+        .with_content(/^  FSCKFIX=no$/)
     end
   end
 
@@ -27,13 +27,13 @@ describe 'rcs', :type => :class do
     end
   end
 
-  context 'sulogin is set to YES' do
+  context 'sulogin is set to yes' do
     let(:params) {{
-      :sulogin => 'YES',
+      :sulogin => 'yes',
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/^  SULOGIN=YES$/)
+        .with_content(/^  SULOGIN=yes$/)
     end
   end
 
@@ -43,17 +43,7 @@ describe 'rcs', :type => :class do
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/^  SULOGIN=YES$/)
-    end
-  end
-
-  context 'delaylogin is set to YES' do
-    let(:params) {{
-      :delaylogin => 'YES',
-    }}
-    it do
-      is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/^  DELAYLOGIN=YES$/)
+        .with_content(/^  SULOGIN=yes$/)
     end
   end
 
@@ -63,17 +53,17 @@ describe 'rcs', :type => :class do
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/^  DELAYLOGIN=YES$/)
+        .with_content(/^  DELAYLOGIN=yes$/)
     end
   end
 
-  context 'utc is set to NO' do
+  context 'delaylogin is set to yes' do
     let(:params) {{
-      :utc => 'NO',
+      :delaylogin => 'yes',
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/^  UTC=NO$/)
+        .with_content(/^  DELAYLOGIN=yes$/)
     end
   end
 
@@ -83,17 +73,17 @@ describe 'rcs', :type => :class do
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/^  UTC=NO$/)
+        .with_content(/^  UTC=no$/)
     end
   end
 
-  context 'verbose is set to YES' do
+  context 'utc is set to no' do
     let(:params) {{
-      :verbose => 'YES'
+      :utc => 'no',
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/^  VERBOSE=YES$/)
+        .with_content(/^  UTC=no$/)
     end
   end
 
@@ -103,17 +93,17 @@ describe 'rcs', :type => :class do
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/^  VERBOSE=YES$/)
+        .with_content(/^  VERBOSE=yes$/)
     end
   end
 
-  context 'fsckfix is set to YES' do
+  context 'verbose is set to yes' do
     let(:params) {{
-      :fsckfix => 'YES'
+      :verbose => 'yes'
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/^  FSCKFIX=YES$/)
+        .with_content(/^  VERBOSE=yes$/)
     end
   end
 
@@ -123,7 +113,17 @@ describe 'rcs', :type => :class do
     }}
     it do
       is_expected.to contain_file('/etc/default/rcS') \
-        .with_content(/^  FSCKFIX=YES$/)
+        .with_content(/^  FSCKFIX=yes$/)
+    end
+  end
+
+  context 'fsckfix is set to yes' do
+    let(:params) {{
+      :fsckfix => 'yes'
+    }}
+    it do
+      is_expected.to contain_file('/etc/default/rcS') \
+        .with_content(/^  FSCKFIX=yes$/)
     end
   end
 

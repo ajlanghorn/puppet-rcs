@@ -5,16 +5,16 @@
   TMPTIME=<%= @tmptime %>
 
 # Spawn sulogin at boot, continue boot if not used within 30s
-  SULOGIN=<%= @sulogin.upcase %>
+  SULOGIN=<%= @sulogin.downcase %>
 
 # Do not allow users to login until boot has completed
-  DELAYLOGIN=<%= @delaylogin.upcase %>
+  DELAYLOGIN=<%= @delaylogin.downcase %>
 
 # Assume that BIOS time is UTC
-  UTC=<%= @utc.upcase %>
+  UTC=<%= @utc.downcase %>
 
 # Verbose output during boot process
-  VERBOSE=<%= @verbose.upcase %>
+  VERBOSE=<%= @verbose.downcase %>
 
 # Automatically repair filesystems with inconsistencies during boot
-  FSCKFIX=<%= @fsckfix.upcase %>
+  FSCKFIX=<%= @fsckfix.downcase %>
