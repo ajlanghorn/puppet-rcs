@@ -37,7 +37,7 @@ RSpec::Core::RakeTask.new(:acceptance) do |t|
   t.pattern = 'spec/acceptance'
 end
 
-task :metadata do
+task :metadata_lint do
   sh "metadata-json-lint metadata.json"
 end
 
@@ -46,6 +46,6 @@ task :test => [
   :syntax,
   :lint,
   :spec,
-  :metadata,
+  :metadata_lint,
 ]
 
